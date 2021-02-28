@@ -3,6 +3,7 @@
   src: url(./fonts/Voyage-Regular.otf),
     url(./fonts/Voyage-Bold.otf);
 }
+
 ::-webkit-scrollbar { width: 0 !important }
 
 * {
@@ -39,19 +40,17 @@ a {
   overflow-y: scroll;
 }
 
+/* topnav & bottomnav */
 .wrapper>.topnav {
   position: fixed;
   top: 0;
   width: 100%;
   background-color: #EFE5D3;
-  /* border-bottom: 1px solid; */
   z-index: 1000;
 }
-
 .wrapper>.topnav.under {
   border-bottom: 1px solid;
 }
-
 .wrapper>.bottomnav {
   position: fixed;
   bottom: 0;
@@ -60,7 +59,6 @@ a {
   border-top: 1px solid #000;
   z-index: 1000;
 }
-
 .topnav>.header-nav,
 .bottomnav>.footer-nav {
   display: flex;
@@ -68,6 +66,10 @@ a {
   margin-left: 2.2rem;
   margin-right: 2.2rem;
   font-size: 0;
+}
+.topnav>.header-nav {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 .topnav>.header-nav .home {
   flex: 0.5;
@@ -91,22 +93,13 @@ a {
   font-size: 1.4rem;
   text-align: center;
 }
-
 .navitem>a {
   border-bottom: 1px solid transparent;
 }
+/* topnav & bottomnav end */
 
-/* .topnav .navitem>a,
-.bottomnav .navitem>a {
-  border-bottom: 1px solid transparent;
-} */
 
-.topnav>.header-nav {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-/* main */
+/* index main */
 .main {
   width: 100%;
   min-height: 100%;
@@ -175,7 +168,7 @@ a {
   text-align: center;
   transform: rotate(-90deg) translateY(-1.8rem);
 }
-/* main end */
+/* index main end */
 
 
 /* content */
@@ -199,13 +192,18 @@ a {
   padding-left: 2rem;
   padding-right: 2rem;
   position: absolute;
-  height: 0;
   opacity: 0;
-  /* transition: all 1s linear; */
-  transition: height 300ms linear, opacity 2s 300ms linear;
-  /* display: none; */
+  transition: opacity 2s linear;
 }
 
+.content>.text>p.question,
+.content>.text>p.exclamation,
+.content>.text>p.comma {
+  font-family: Roboto, Arial, sans-serif;
+}
+/* content end */
+
+/* control */
 .control {
   position: fixed;
   bottom: 4rem;
@@ -241,9 +239,9 @@ a {
   height: 100%;
   font-size: 9.6rem;
 }
-/* content end */
+/* control end */
 
-/* text & nav active */
+/* active effect */
 .txt-active {
   opacity: 1!important;
   height: 100%!important;
@@ -269,11 +267,6 @@ p>span.highlight {
 /* active end */
 
 /* media query */
-/* @media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
-  }
-} */
 @media only screen and (min-width: 1440px) and (max-width: 1920px) {
   html {
     font-size: 100%;
@@ -310,6 +303,8 @@ p>span.highlight {
   .isMobile {
     display: block;
   }
+
+  /* index main2 */
   .main2 {
     display: flex;
     justify-content: center;
@@ -379,11 +374,12 @@ p>span.highlight {
     border: 1px solid #000;
     transition: all .5s;
   }
-
   .main2>.box:nth-child(4):hover::after {
     background-color: #000;
   }
+  /* main2 end */
 
+  /* content */
   .content {
     width: 75%;
     height: 100%;
@@ -399,6 +395,9 @@ p>span.highlight {
     padding-left: 6rem;
     padding-right: 0;
   }
+  /* content end */
+
+  /* control */
   .control.isMobile {
     position: absolute;
     top: 0;
@@ -446,4 +445,14 @@ p>span.highlight {
   .control.isMobile>.btns>.btn:nth-child(2)>a {
     transform: translateY(12%);
   }
+}
+
+/* hover effect */
+.wrapper>.topnav>.header-nav>.isDisplay2>a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+.underline {
+  border-bottom: 1px solid #000!important;
 }
